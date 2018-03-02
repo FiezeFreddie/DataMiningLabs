@@ -37,13 +37,31 @@ public class main {
 		HashFunction func2 = new HashFunction(3,1);
 		hash.addHashFunction(func1);
 		hash.addHashFunction(func2);
+		hash.addSet(s1);
+		hash.addSet(s2);
+		hash.addSet(s3);
+		hash.addSet(s4);
+		hash.computeSignature();
 
 
 	}
 	
 	public static void exercise1_3(MinHash mh) {
+        ShingleSet s1 = new ShingleSet(1);
+        s1.shingleString("ab");
+        ShingleSet s2 = new ShingleSet(1);
+        s2.shingleString("c");
+        ShingleSet s3 = new ShingleSet(1);
+        s3.shingleString("bde");
+        ShingleSet s4 = new ShingleSet(1);
+        s4.shingleString("acd");
+        mh.addSet(s1);
+        mh.addSet(s2);
+        mh.addSet(s3);
+        mh.addSet(s4);
 		mh.addRandomHashFunctions(100);
         MinHashSignature mhs = mh.computeSignature();
+        LSH.computeCandidates(mhs, 1000, 5);
 
 	}
 

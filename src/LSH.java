@@ -42,6 +42,8 @@ public class LSH {
 
 		    for (int j = 0; j < mhs.cols(); j++){
 		        String s = mhs.colSegment(j, i*r, (i+1)*r);
+		        int is = s.hashCode();
+		        int ism = is % bs;
 		        buckets.get(i).get(s.hashCode() % bs).add(j);
             }
 		}
