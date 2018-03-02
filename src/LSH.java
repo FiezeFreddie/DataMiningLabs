@@ -30,20 +30,18 @@ public class LSH {
 
         List<List<List<Integer>>> buckets = new ArrayList<>();
 
-		for (int i = 0; i < b; i++){
-		    List<List<Integer>> theBucket = new ArrayList<>();
-
-		    for (int j = 0; j < mhs.cols(); j++){
-		        List<Integer> theSet = new ArrayList<>();
-		        theBucket.add(theSet);
+        for (int i = 0; i < b; i++){
+            List<List<Integer>> theBand = new ArrayList<>();
+            buckets.add(theBand);
+            for (int j = 0; j < bs; j++) {
+                List<Integer> theBucket = new ArrayList<>();
+                buckets.get(i).add(theBucket);
             }
+        }
 
-            buckets.add(theBucket);
-
+		for (int i = 0; i < b; i++){
 		    for (int j = 0; j < mhs.cols(); j++){
 		        String s = mhs.colSegment(j, i*r, (i+1)*r);
-		        int is = s.hashCode();
-		        int ism = is % bs;
 		        buckets.get(i).get(s.hashCode() % bs).add(j);
             }
 		}

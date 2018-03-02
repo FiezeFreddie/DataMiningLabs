@@ -42,14 +42,13 @@ public class main {
 		hash.addSet(set3);
 		hash.addSet(set4);
 		MinHashSignature sig = hash.computeSignature();
-		hash.computeSignature();
 
 
 	}
 	
 	public static void exercise1_3(MinHash mh) {
         ShingleSet s1 = new ShingleSet(1);
-        s1.shingleString("ab");
+        s1.shingleString("ad");
         ShingleSet s2 = new ShingleSet(1);
         s2.shingleString("c");
         ShingleSet s3 = new ShingleSet(1);
