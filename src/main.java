@@ -24,23 +24,24 @@ public class main {
 	}
 
 	public static void exercise1_2() {
-    	ShingleSet s1 = new ShingleSet(1);
-    	s1.shingleString("ab");
-    	ShingleSet s2 = new ShingleSet(1);
-    	s2.shingleString("c");
-    	ShingleSet s3 = new ShingleSet(1);
-    	s3.shingleString("bde");
-    	ShingleSet s4 = new ShingleSet(1);
-    	s4.shingleString("acd");
-        MinHash hash = new MinHash();
+		ShingleSet set1  = new ShingleSet(1);
+		set1.shingleString("ad");
+		ShingleSet set2  = new ShingleSet(1);
+		set2.shingleString("c");
+		ShingleSet set3  = new ShingleSet(1);
+		set3.shingleString("bde");
+		ShingleSet set4  = new ShingleSet(1);
+		set4.shingleString("acd");
 		HashFunction func1 = new HashFunction(1,1);
 		HashFunction func2 = new HashFunction(3,1);
+		MinHash hash = new MinHash();
 		hash.addHashFunction(func1);
 		hash.addHashFunction(func2);
-		hash.addSet(s1);
-		hash.addSet(s2);
-		hash.addSet(s3);
-		hash.addSet(s4);
+		hash.addSet(set1);
+		hash.addSet(set2);
+		hash.addSet(set3);
+		hash.addSet(set4);
+		MinHashSignature sig = hash.computeSignature();
 		hash.computeSignature();
 
 
