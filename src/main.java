@@ -4,9 +4,7 @@ import java.util.Set;
 
 public class main {
 
-    private static MinHash hash;
-
-	public static void exercise1_1() {
+    public static void exercise1_1() {
 		for(int i = 0; i < 6; i++) {
 			System.out.println("For k = " + i);
 			ShingleSet set = new ShingleSet(i);
@@ -26,7 +24,15 @@ public class main {
 	}
 
 	public static void exercise1_2() {
-	    hash = new MinHash();
+    	ShingleSet s1 = new ShingleSet(1);
+    	s1.shingleString("ab");
+    	ShingleSet s2 = new ShingleSet(1);
+    	s2.shingleString("c");
+    	ShingleSet s3 = new ShingleSet(1);
+    	s3.shingleString("bde");
+    	ShingleSet s4 = new ShingleSet(1);
+    	s4.shingleString("acd");
+        MinHash hash = new MinHash();
 		HashFunction func1 = new HashFunction(1,1);
 		HashFunction func2 = new HashFunction(3,1);
 		hash.addHashFunction(func1);
@@ -36,7 +42,6 @@ public class main {
 	}
 	
 	public static void exercise1_3(MinHash mh) {
-	    mh = new MinHash();
 		mh.addRandomHashFunctions(100);
         MinHashSignature mhs = mh.computeSignature();
 
@@ -53,6 +58,7 @@ public class main {
 		exercise1_2();
 
 		// exercise 1.3
+        exercise1_3(new MinHash());
 	}
 
 }
