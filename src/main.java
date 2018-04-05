@@ -2,11 +2,18 @@
 public class main {
 	
 	private static void hierarchical() {
-		HierarchicalClusteringPlotter hcp = new HierarchicalClusteringPlotter(3, "data/cluster_lines.txt");
+		HierarchicalClusteringPlotter hcp = new HierarchicalClusteringPlotter(3, "data/cluster.txt");
 	}
 	
 	private static void hierarchicalDigits() {
-		// add code here
+		HierarchicalClustering hc = new HierarchicalClustering(10, "data/train_digits.txt");
+		while (hc.getClusterSize() > 10){
+		    hc.update();
+        }
+        System.out.println(hc.getClusterSize());
+		for (int i = 0; i < 10; i++){
+		    DigitFrame dg = new DigitFrame("something", hc.getCluster(i).centroid(), 8, 8);
+        }
 	}
 	
 	private static void kmeans() {
@@ -22,8 +29,8 @@ public class main {
 	}
 
 	public static void main(String[] args) {
-		hierarchical();
-		//hierarchicalDigits();
+		//hierarchical();
+		hierarchicalDigits();
 		//kmeans();
 		//kmeansTuneK();
 		//kmeansDigits();
