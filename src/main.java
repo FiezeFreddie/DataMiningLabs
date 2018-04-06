@@ -47,11 +47,11 @@ public class main {
 	}
 
 	public static void main(String[] args) {
-		//hierarchical();
+		hierarchical();
 		//hierarchicalDigits();
 		//kmeans();
 		//kmeansTuneK();
-		kmeansDigits();
+		//kmeansDigits();
 	}
 
 }
