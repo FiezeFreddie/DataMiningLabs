@@ -17,7 +17,7 @@ public class main {
 	}
 	
 	private static void kmeans() {
-		// add code here
+		KMeansPlotter kMeansPlotter = new KMeansPlotter(3,"data/cluster.txt");
 	}
 	
 	private static void kmeansTuneK() {
@@ -30,8 +30,8 @@ public class main {
 
 	public static void main(String[] args) {
 		//hierarchical();
-		hierarchicalDigits();
-		//kmeans();
+		//hierarchicalDigits();
+		kmeans();
 		//kmeansTuneK();
 		//kmeansDigits();
 	}
