@@ -21,19 +21,37 @@ public class main {
 	}
 	
 	private static void kmeansTuneK() {
-		// add code here
+		for (int i = 1; i <= 10; i++){
+			KMeans kMeans = new KMeans(i, "data/cluster.txt");
+            for (int j = 0; j < 10; j++){
+                kMeans.update();
+            }
+            double avrRss = 0d;
+
+            for (Cluster c: kMeans.getClusters()){
+                avrRss += c.calculateAverageRSS();
+            }
+            System.out.println("K = " + i + " Average RSS: " + avrRss/kMeans.getClusters().size());
+		}
 	}
 	
 	private static void kmeansDigits() {
-		// add code here
+		KMeans kMeans = new KMeans(10, "data/train_digits.txt");
+		for (int i = 0; i < 10; i++){
+		    kMeans.update();
+        }
+
+        for (int i = 0; i < 10; i++){
+		    DigitFrame df = new DigitFrame("something", kMeans.getCluster(i).centroid(), 8, 8);
+        }
 	}
 
 	public static void main(String[] args) {
 		//hierarchical();
 		//hierarchicalDigits();
-		kmeans();
+		//kmeans();
 		//kmeansTuneK();
-		//kmeansDigits();
+		kmeansDigits();
 	}
 
 }
