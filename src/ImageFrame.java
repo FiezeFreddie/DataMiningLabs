@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class DigitFrame extends JFrame {
+public class ImageFrame extends JFrame {
 	/**
 	 * 
 	 */
@@ -17,7 +17,7 @@ public class DigitFrame extends JFrame {
 	 * Constructor.
 	 * @param title Title of the frame.
 	 */
-	public DigitFrame(String title) {
+	public ImageFrame(String title) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setTitle(title);
@@ -30,7 +30,7 @@ public class DigitFrame extends JFrame {
 	 * @param width Width of the image.
 	 * @param height Height of the image.
 	 */
-	public DigitFrame(String title, List<Double> image, int width, int height) {
+	public ImageFrame(String title, List<Double> image, int width, int height) {
 		this(title);
 		showImage(image, width, height);
 	}

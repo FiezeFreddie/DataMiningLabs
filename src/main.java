@@ -1,57 +1,55 @@
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class main {
 	
-	private static void hierarchical() {
-		HierarchicalClusteringPlotter hcp = new HierarchicalClusteringPlotter(3, "data/cluster.txt");
+	/**
+	 * Computes nrVectors eigen vectors of m where e is the
+	 * stopping criterion for the norm of the difference for an
+	 * eigenvector in between two rounds.
+	 * @param m The matrix of which eigenvectors should be computed.
+	 * @param nrVectors The number of eigenvectors to compute.
+	 * @param e The threshold for the stopping criterion.
+	 * @return A list of eigenvectors in m.
+	 */
+	public static List<Matrix> powerIteration(Matrix m, int nrVectors, double e) {
+		assert(m.cols() == m.rows() && m.cols() >= nrVectors);
+		
+		List<Matrix> eigenvectors = new ArrayList<Matrix>();
+		
+		// add code here
+		
+		return eigenvectors;
 	}
 	
-	private static void hierarchicalDigits() {
-		HierarchicalClustering hc = new HierarchicalClustering(10, "data/train_digits.txt");
-		while (hc.getClusterSize() > 10){
-		    hc.update();
-        }
-        System.out.println(hc.getClusterSize());
-		for (int i = 0; i < 10; i++){
-		    DigitFrame dg = new DigitFrame("something", hc.getCluster(i).centroid(), 8, 8);
-        }
+	/**
+	 * Computes two eigenvectors of a small matrix example.
+	 */
+	public static void powerIterationTest() {
+		// add code here
 	}
-	
-	private static void kmeans() {
-		KMeansPlotter kMeansPlotter = new KMeansPlotter(3,"data/cluster.txt");
-	}
-	
-	private static void kmeansTuneK() {
-		for (int i = 1; i <= 10; i++){
-			KMeans kMeans = new KMeans(i, "data/cluster.txt");
-            for (int j = 0; j < 10; j++){
-                kMeans.update();
-            }
-            double avrRss = 0d;
 
-            for (Cluster c: kMeans.getClusters()){
-                avrRss += c.calculateAverageRSS();
-            }
-            System.out.println("K = " + i + " Average RSS: " + avrRss/kMeans.getClusters().size());
-		}
+	/**
+	 * Computes the principal components from a Gaussian
+	 * distributed dataset.
+	 */
+	public static void pca() {
+		// add code here
 	}
 	
-	private static void kmeansDigits() {
-		KMeans kMeans = new KMeans(10, "data/train_digits.txt");
-		for (int i = 0; i < 10; i++){
-		    kMeans.update();
-        }
-
-        for (int i = 0; i < 10; i++){
-		    DigitFrame df = new DigitFrame("something", kMeans.getCluster(i).centroid(), 8, 8);
-        }
+	/**
+	 * Computes some principal components from a dataset
+	 * of face images.
+	 */
+	public static void pcaFaces() {
+		// add code here
 	}
 
 	public static void main(String[] args) {
-		hierarchical();
-		//hierarchicalDigits();
-		//kmeans();
-		//kmeansTuneK();
-		//kmeansDigits();
+		//powerIterationTest();
+		//pca();
+		//pcaFaces();
 	}
 
 }
